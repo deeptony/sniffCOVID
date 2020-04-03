@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block main %}
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="columns is-mobile">
+      <div class="column is-1">
+      </div>
+      <div class="column is-one-third">
+          <h1 class="title" id="name_id">
+            {{name}}
+          </h1>
+          <h2 class="subtitle">
+            An IE University course
+          </h2>
+      </div>
+  </div>
+</section>
+
+<section class="section">
+    <div class="container">
+      <h3 class="title">Length</h3>
+      <h4 class="subtitle" id="length">
+        {{length}}
+      </h4>
+      <p id="length-content">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+      <h3 class="title">Difficulty</h3>
+      <h4 class="subtitle" id="difficulty">
+        {{difficulty}}
+      </h4>
+      <p id="difficulty-content">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+      <h3 class="title">Rating</h3>
+      <h4 class="subtitle" id="rating">
+        {{rating}}
+      </h4>
+      <p id="rating-content">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+</section>
+
+<script src="/static/js/courses.js"></script>
+
+{% endblock %}
