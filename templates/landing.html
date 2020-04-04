@@ -61,8 +61,7 @@
                 </div>
                 <p id="demo"><p>
               </div>
-              <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
-                <div class="columns is-multiline">
+                 <div class="columns is-multiline">
                   <div class="column is-5">
                   </div>
                   <div id="confirm_holder" class="column is-2">
@@ -71,86 +70,85 @@
                   <div class="column is-5">
                   </div>
                 </div>
-              </div>
-              <script>
-                var x = document.getElementById("demo")
-                var smell = false;
-                var taste = false;
-                var location_details = {};
-
-                function addSmell(){
-                  let button_container = document.getElementById("smell");
-                  button_container.classList.add("is-primary");
-                  button_container.classList.remove("is-light");
-
-                  smell = true;
-                  console.log(smell)
-                }
-
-                function addTaste(){
-
-                  let button_container2 = document.getElementById("taste");
-                  button_container2.classList.add("is-primary");
-                  button_container2.classList.remove("is-light");
-
-                  taste = true;
-                  console.log(taste)
-                }
-
-                function addProgress(){
-                  let progress_bar = document.getElementById("progress");
-                  if (progress_bar.value == 0){
-                    progress_bar.value = 50;
-                  } else {
-                    progress_bar.value = progress_bar.value
-                  }
-                }
-
-                function getLocation(){
-                  if (navigator.geolocation){
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                  } else {
-                    x.innerHTML = "Parece que tu explorador no permite geolocalización";
-                  }
-                }
-                function showPosition(position){
-                  location_details['latitude'] = position.coords.latitude;
-                  location_details['longitude'] = position.coords.longitude;
-                  console.log(location_details)
-                }
-
-                function addProgressAndLocation(){
-                  let button_container3 = document.getElementById("location");
-                  button_container3.classList.add("is-primary");
-                  button_container3.classList.remove("is-light");
-                  let progress_bar = document.getElementById("progress");
-                  progress_bar.value = 100;
-                  getLocation();
-
-                }
-
-                function triggerSendData(){
-                  var url = 'https://sniffcovid.herokuapp.com//data';
-                  var data = {};
-
-                  data.key1 = smell;
-                  data.key2 = taste;
-                  data.key3 = location_details.latitude;
-                  data.key4 = location_details.longitude;
-
-                  fetch(url, {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers:{
-                      'Content-Type': 'application/json'
-                    }
-                  })
-                  .then(res => res.json())
-                  .catch(error => console.error('Error:', error))
-                  .then(response => console.log('Success:', response));
-                }
-              </script>
             </div>
+            <script>
+              var x = document.getElementById("demo")
+              var smell = false;
+              var taste = false;
+              var location_details = {};
+
+              function addSmell(){
+                let button_container = document.getElementById("smell");
+                button_container.classList.add("is-primary");
+                button_container.classList.remove("is-light");
+
+                smell = true;
+                console.log(smell)
+              }
+
+              function addTaste(){
+
+                let button_container2 = document.getElementById("taste");
+                button_container2.classList.add("is-primary");
+                button_container2.classList.remove("is-light");
+
+                taste = true;
+                console.log(taste)
+              }
+
+              function addProgress(){
+                let progress_bar = document.getElementById("progress");
+                if (progress_bar.value == 0){
+                  progress_bar.value = 50;
+                } else {
+                  progress_bar.value = progress_bar.value
+                }
+              }
+
+              function getLocation(){
+                if (navigator.geolocation){
+                  navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                  x.innerHTML = "Parece que tu explorador no permite geolocalización";
+                }
+              }
+              function showPosition(position){
+                location_details['latitude'] = position.coords.latitude;
+                location_details['longitude'] = position.coords.longitude;
+                console.log(location_details)
+              }
+
+              function addProgressAndLocation(){
+                let button_container3 = document.getElementById("location");
+                button_container3.classList.add("is-primary");
+                button_container3.classList.remove("is-light");
+                let progress_bar = document.getElementById("progress");
+                progress_bar.value = 100;
+                getLocation();
+
+              }
+
+              function triggerSendData(){
+                var url = 'https://sniffcovid.herokuapp.com//data';
+                var data = {};
+
+                data.key1 = smell;
+                data.key2 = taste;
+                data.key3 = location_details.latitude;
+                data.key4 = location_details.longitude;
+
+                fetch(url, {
+                  method: 'POST',
+                  body: JSON.stringify(data),
+                  headers:{
+                    'Content-Type': 'application/json'
+                  }
+                })
+                .then(res => res.json())
+                .catch(error => console.error('Error:', error))
+                .then(response => console.log('Success:', response));
+              }
+            </script>
             <div class="column is-2">
             </div>
           </div>
