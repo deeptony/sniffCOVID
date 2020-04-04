@@ -9,12 +9,15 @@
             <div class="column is-2">
             </div>
             <div class="column is-8">
-              <button onclick="getLocation()" class="button is-dark">Obtener ubicación</button>
+              <button onclick="getLocation()" class="button is-light is-large">Obtener ubicación</button>
               <p id="demo"><p>
+
+              <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
+                <h1>Participar</h1>
+              </div>
 
               <script>
                 var x = document.getElementById("demo");
-                
                 function getLocation(){
                   if (navigator.geolocation){
                     navigator.geolocation.getCurrentPosition(showPosition);
@@ -22,12 +25,10 @@
                     x.innerHTML = "Geolocation is not supported by this browser"
                   }
                 }
-
                 function showPosition(position){
                   x.innerHTML = "Latitude: " + position.coords.latitude +
                   "<br>Longtitude: " + position.coords.longitude;
                 }
-
               </script>
 
             </div>

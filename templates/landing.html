@@ -36,13 +36,48 @@
                 <div class="column is-one-quarter">
                 </div>
               </div>
+              <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
+                <progress id ="progress" class="progress is-primary" value="00" max="100">15%</progress>
+                <button onclick="addProgress()" class="button is-light is-large">He perdido el olfato</button>
+                <button onclick="addProgress()" class="button is-light is-large">He perdido el sabor</button>
+                <button onclick="addProgressAndLocation()" class="button is-light is-large">Obtener ubicación</button>
+                <p id="demo"><p>
+              </div>
 
-              <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
-                <button class="button is-light is-large">Participar</button>
-              </div>
-              <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
-                <p>Solo introducirás tu ubicación y si has perdido los sentidos mencionados.</p>
-              </div>
+              <script>
+                var x = document.getElementById("demo")
+
+                function addProgress(){
+                  let progress_bar = document.getElementById("progress");
+                  let value = progress_bar.value;
+                  console.log(progress_bar.value);
+                  if (value < 50) {
+                    console.log("Value less than 50");
+                    progress_bar.value = 50;
+                    console.log(progress_bar.value)
+                  } else if (value == 50){
+                    progress_bar.value = 100;
+                    console.log(progress_bar.value)
+                  }
+                }
+
+                function getLocation(){
+                  if (navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                  } else {
+                    x.innerHTML = "Geolocation is not supported by this browser"
+                  }
+                }
+                function showPosition(position){
+                  x.innerHTML = "Latitude: " + position.coords.latitude +
+                  "<br>Longtitude: " + position.coords.longitude;
+                }
+
+                function addProgressAndLocation(){
+                  addProgress();
+                  getLocation();
+                }
+              </script>
 
             </div>
             <div class="column is-2">
@@ -51,5 +86,4 @@
         </div>
       </div>
     </section>
-    <script src="/static/js/landing.js"></script>
   {% endblock %}
