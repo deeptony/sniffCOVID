@@ -40,18 +40,13 @@
                 <progress id ="progress" class="progress is-primary" value="00" max="100">15%</progress>
                 <div id="button_holder" class="columns is-multiline">
                   <div class="column is-4">
-                    <button id="smell" onclick="addProgress(); addSmell(); triggerSendData()" class="button is-light is-large">He perdido el olfato</button>
+                    <button id="smell" onclick="addProgress(); addSmell()" class="button is-light is-large">He perdido el olfato</button>
                   </div>
                   <div class="column is-4">
-                    <button id="taste" onclick="addProgress(); addTaste(); triggerSendData()" class="button is-light is-large">He perdido el sabor</button>
+                    <button id="taste" onclick="addProgress(); addTaste()" class="button is-light is-large">He perdido el sabor</button>
                   </div>
                   <div class="column is-4">
-                    <button id="location" onclick="addProgressAndLocation(); triggerSendData()" class="button is-light is-large">Facilitar mi ubicación</button>
-                  </div>
-                </div>
-                <div id="button_holder" class="columns is-multiline">
-                  <div class="column is-2 is-offset-5">
-                    <button id="location" onclick="triggerSendData()" class="button is-light is-normal">Confirmar</button>
+                    <button id="location" onclick="addProgressAndLocation()" class="button is-light is-large">Facilitar mi ubicación</button>
                   </div>
                 </div>
                 <p id="demo"><p>
@@ -114,9 +109,35 @@
                 }
 
                 function triggerSendData(){
+                  var url = 'http://127.0.0.1:5000/data';
+                  var data = {};
 
+                  data.key1 = smell;
+                  data.key2 = taste;
+                  data.key3 = location_details.latitude;
+                  data.key4 = location_details.longitude;
+
+                  fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers:{
+                      'Content-Type': 'application/json'
+                    }
+                  })
+                  .then(res => res.json())
+                  .catch(error => console.error('Error:', error))
+                  .then(response => console.log('Success:', response));
                 }
               </script>
+
+              <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
+                <div id="button_holder" class="columns is-multiline">
+                  <div class="column is-2 is-offset-5">
+                    <button id="location" onclick="triggerSendData()" class="button is-light is-normal">Confirmar</button>
+                  </div>
+                </div>
+              </div>
+
 
             </div>
             <div class="column is-2">
