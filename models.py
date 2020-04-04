@@ -2,7 +2,7 @@ from server import db
 
 
 class Point(db.Model):
-    __tablename__ = "users"
+    __tablename__ = "points"
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     smell = db.Column(db.Boolean(), nullable=False)
     taste = db.Column(db.Boolean(), nullable=False)
