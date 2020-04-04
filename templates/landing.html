@@ -119,7 +119,7 @@
 
                   fetch(url, {
                     method: 'POST',
-                    body: data,
+                    body: JSON.parse(data),
                     headers:{
                       'Content-Type': 'application/json'
                     }
