@@ -27,7 +27,14 @@ def render_index():
 @server.route('/data', methods = ["POST"])
 def store_data():
     body = request.get_json()
-    print(body['key1'])
+    smell = body['key1']
+    taste = body['key2']
+    latitude = body['key3']
+    longitude = body['key4']
+    print(smell)
+    print(taste)
+    print(latitude)
+    print(longitude)
     return body
 
 
