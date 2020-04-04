@@ -84,7 +84,11 @@
 
                 function addProgress(){
                   let progress_bar = document.getElementById("progress");
-                  progress_bar.value = 50;
+                  if (progress_bar.value == 0){
+                    progress_bar.value = 50;
+                  } else {
+                    progress_bar.value = progress_bar.value
+                  }
                 }
 
                 function getLocation(){
