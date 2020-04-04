@@ -26,7 +26,7 @@ def render_index():
 #package has key1, key2, key3, key4
 @server.route('/data', methods = ["POST"])
 def store_data():
-    body = request.data
+    body = jsonify(request.data)
     print(body.key1)
     return body
 
