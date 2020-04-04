@@ -52,6 +52,19 @@
                 <p id="demo"><p>
               </div>
 
+              <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
+                <div class="columns is-multiline">
+                  <div id="confirm_holder" class="column is-1 is-offset-5">
+                    <button hidden id="location" onclick="triggerSendData()" class="button is-light is-normal">Confirmar</button>
+                  </div>
+                </div>
+                <div class="columns is-multiline">
+                  <div id="confirm_holder" class="column is-1 is-offset-5">
+                    <p id="waiting"></p>
+                  </div>
+                </div>
+              </div>
+
               <script>
                 var x = document.getElementById("demo")
                 var smell = false;
@@ -128,15 +141,8 @@
                   .catch(error => console.error('Error:', error))
                   .then(response => console.log('Success:', response));
                 }
+                let confirm_holder = document.getElementById("confirm_holder")
               </script>
-
-              <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
-                <div id="button_holder" class="columns is-multiline">
-                  <div class="column is-2 is-offset-5">
-                    <button id="location" onclick="triggerSendData()" class="button is-light is-normal">Confirmar</button>
-                  </div>
-                </div>
-              </div>
 
 
             </div>
