@@ -27,7 +27,7 @@ def render_index():
 @server.route('/data', methods = ["POST"])
 def store_data():
     body = request.get_json()
-    print(body)
+    print(body['key1'])
     return body
 
 
