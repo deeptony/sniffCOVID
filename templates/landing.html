@@ -11,7 +11,7 @@
             <div class="column is-8">
               <h1 class="title is-3" style="margin-bottom:80px;">Según <a href="#"><u>estudios científicos recientes</u></a>, la pérdida repentina de olfato / gusto, sin otros síntomas, podría ser un indicador temprano de infección por COVID19.<br><br></h1>
               <!--<h2 class="title is-4" style="margin-bottom:40px;">Click on cards to access profiles</h2>-->
-              <h6 class="subtitle is-4" style="margin-bottom:80px;">Con la colección de datos en tiempo real sobre pérdida repentina de olfato, utilizando tecnologías predictivas como Deep Learning, podemos combatir la pandemia todos juntos.</h6>
+              <h6 class="subtitle is-4" style="margin-bottom:80px;">Con la colección de datos en tiempo real sobre pérdida repentina de estos sentidos, utilizando tecnologías predictivas como Deep Learning, podemos combatir la pandemia todos juntos, adelantándonos a la evolución de la misma.</h6>
               <div class="columns is-multiline is-mobile is-centered" style="margin-bottom:60px;">
                 <div class="column is-one-quarter">
                 </div>
@@ -38,27 +38,40 @@
               </div>
               <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
                 <progress id ="progress" class="progress is-primary" value="00" max="100">15%</progress>
-                <button onclick="addProgress()" class="button is-light is-large">He perdido el olfato</button>
-                <button onclick="addProgress()" class="button is-light is-large">He perdido el sabor</button>
-                <button onclick="addProgressAndLocation()" class="button is-light is-large">Obtener ubicación</button>
+                <button id="smell" onclick="addProgress(); addSmell()" class="button is-light is-large">He perdido el olfato</button>
+                <button id="taste" onclick="addProgress(); addTaste()" class="button is-light is-large">He perdido el sabor</button>
+                <button id="location" onclick="addProgressAndLocation()" class="button is-light is-large">Obtener ubicación</button>
                 <p id="demo"><p>
               </div>
 
               <script>
                 var x = document.getElementById("demo")
+                var smell = false;
+                var taste = false;
+                var location_details ={};
+
+                function addSmell(){
+                  let button_container = document.getElementById("smell");
+                  button_container.classList.add("is-primary");
+                  button_container.classList.remove("is-light");
+
+                  smell = true;
+                  console.log(smell)
+                }
+
+                function addTaste(){
+
+                  let button_container2 = document.getElementById("taste");
+                  button_container2.classList.add("is-primary");
+                  button_container2.classList.remove("is-light");
+
+                  taste = true;
+                  console.log(taste)
+                }
 
                 function addProgress(){
                   let progress_bar = document.getElementById("progress");
-                  let value = progress_bar.value;
-                  console.log(progress_bar.value);
-                  if (value < 50) {
-                    console.log("Value less than 50");
-                    progress_bar.value = 50;
-                    console.log(progress_bar.value)
-                  } else if (value == 50){
-                    progress_bar.value = 100;
-                    console.log(progress_bar.value)
-                  }
+                  progress_bar.value = 50;
                 }
 
                 function getLocation(){
@@ -69,13 +82,22 @@
                   }
                 }
                 function showPosition(position){
-                  x.innerHTML = "Latitude: " + position.coords.latitude +
-                  "<br>Longtitude: " + position.coords.longitude;
+                  location_details['latitude'] = position.coords.latitude;
+                  location_details['longitude'] = position.coords.longitude;
+                  console.log(location_details)
                 }
 
                 function addProgressAndLocation(){
-                  addProgress();
+                  let button_container3 = document.getElementById("location");
+                  button_container3.classList.add("is-primary");
+                  button_container3.classList.remove("is-light");
+                  let progress_bar = document.getElementById("progress");
+                  progress_bar.value = 100;
                   getLocation();
+                }
+
+                function sendData(){
+
                 }
               </script>
 
