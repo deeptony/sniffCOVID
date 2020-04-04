@@ -11,6 +11,11 @@ server = Flask("flask_server")
 def render_index():
     return render_template('landing.html')
 
+#route for input form
+@server.route('/input')
+def render_form():
+    return render_template('input.html')
+    
 #statement to initiate server
 if __name__ == '__main__':
     server.run(debug = True)
