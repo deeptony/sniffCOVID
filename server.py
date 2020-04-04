@@ -31,10 +31,8 @@ def store_data():
     taste = body['key2']
     latitude = body['key3']
     longitude = body['key4']
-    print(smell)
-    print(taste)
-    print(latitude)
-    print(longitude)
+    point = Point(smell = smell, taste = taste, latitude = latitude, longitude = longitude)
+    print(point)
     return body
 
 
