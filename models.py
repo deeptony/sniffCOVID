@@ -1,4 +1,4 @@
-from server import server
+from server import db
 
 
 class Point(db.Model):
