@@ -53,7 +53,8 @@
               </div>
               <div class="container is-fluid has-text-centered" style="margin-bottom: 10px;">
                 <div class="columns is-multiline">
-                  <p id="waiting">Debes de indicar almenos la pérdida de uno de los dos sentidos. La ubicación tarda unos segundos en ser registrada.</p>
+                  <p id="waiting">Puedes indicar los sentidos que has perdido y tu ubicación haciendo click en las cajas.</p>
+                  <p id="waiting"> La ubicación tarda unos segundos en ser registrada.</p>
                   <div id="confirm_holder" class="column is-1 is-offset-5">
                     <button hidden id="location" onclick="triggerSendData()" class="button is-light is-normal">Confirmar</button>
                   </div>
@@ -97,7 +98,7 @@
                   if (navigator.geolocation){
                     navigator.geolocation.getCurrentPosition(showPosition);
                   } else {
-                    x.innerHTML = "Geolocation is not supported by this browser";
+                    x.innerHTML = "Parece que tu explorador no permite geolocalización";
                   }
                 }
                 function showPosition(position){
