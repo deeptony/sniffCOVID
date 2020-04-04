@@ -1,10 +1,17 @@
 #performing relevant imports
 from flask import Flask, render_template, request, abort, session, flash, redirect, jsonify
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+import sys
+import json
+from flask_heroku import Heroku
+
 #instantiating server
 server = Flask("flask_server")
 CORS(server)
-
+server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+heroku = Heroku(server)
+db = SQLAlchemy(server)
 #defining routes
 
 #route for landing page
