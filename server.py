@@ -32,7 +32,8 @@ def store_data():
     latitude = body['key3']
     longitude = body['key4']
     point = Point(smell = smell, taste = taste, latitude = latitude, longitude = longitude)
-    print(point)
+    db.session.add(point)
+    db.session.commit()
     return body
 
 
