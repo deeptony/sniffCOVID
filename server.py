@@ -12,8 +12,11 @@ CORS(server)
 server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 heroku = Heroku(server)
 db = SQLAlchemy(server)
-#defining routes
 
+#models can only be imported after the db has been instantiated
+from models import Point
+
+#defining routes
 #route for landing page
 @server.route('/')
 def render_index():
