@@ -1,5 +1,7 @@
 from server import db
-
+import datetime
+from sqlalchemy import Column, Integer, DateTime
+from sqlalchemy.ext.declarative import declarative_base
 
 class Point(db.Model):
     __tablename__ = "points"
