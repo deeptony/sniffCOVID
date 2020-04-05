@@ -59,7 +59,7 @@
                   <div class="column is-5">
                   </div>
                   <div id="confirm_holder" class="column is-2">
-                    <button hidden id="location" onclick="triggerSendData()" class="button is-black is-bold is-normal">Confirmar</button>
+                    <button hidden id="confirm_final" onclick="triggerSendData()" class="button is-black is-bold is-normal">Confirmar</button>
                   </div>
                   <div class="column is-5">
                 </div>
@@ -125,7 +125,9 @@
               function showPosition(position){
                 location_details['latitude'] = position.coords.latitude;
                 location_details['longitude'] = position.coords.longitude;
-                console.log(location_details)
+                let confirm_button = document.getElementById("confirm_final");
+                confirm_button.classList.remove("is-black");
+                confirm_button.classList.add("is-light");
               }
 
               function addProgressAndLocation(){
