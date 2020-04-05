@@ -5,20 +5,21 @@
       <!-- Hero content: will be in the middle -->
       <div class="hero-body" style="margin-top: 40px;">
         <div class="container is-fluid has-text-centered">
-          <div class="columns is-multiline is-mobile is-desktop">
-            <div class="column is-2">
-            </div>
-            <div class="column is-8">
+          <div class="columns is-flex is-horizontal-center is-multiline is-mobile is-desktop">
+            <!--<div class="column is-2">
+            </div>-->
+            <div class="column is-three-quarters-desktop">
               <!--<h1 class="title is-3" style="margin-bottom:50px;">Según <a href="#"><u>estudios científicos recientes</u></a>, la pérdida repentina de olfato / gusto, sin otros síntomas, podría ser un indicador temprano de infección por COVID19.<br><br></h1>-->
-              <h1 class="title is-2" style="margin-bottom:20px;">Con la colección de datos en tiempo real sobre pérdida repentina de los sentidos del olfato y el sabor, podemos combatir la pandemia todos juntos.</h1>
-              <h2 class="title is-4" style="margin-bottom:40px;">La pérdida del olfato y/o gusto son síntomas muy frecuentes del COVID19. Registrando la aparición de estos síntomas por ubicación, podemos generar una capa de información de alto impacto.</h2>
+              <h1 class="title is-2 is-size-3-mobile" style="margin-bottom:20px;">Con la colección de datos en tiempo real sobre pérdida repentina de los sentidos del olfato y el sabor, podemos combatir la pandemia todos juntos.</h1>
+              <h2 class="title is-4 is-size-5-mobile" style="margin-bottom:40px;">La pérdida del olfato y/o gusto son síntomas muy frecuentes del COVID19. Registrando la aparición de estos síntomas por ubicación, podemos generar una capa de información de alto impacto.</h2>
+
               <!-- informative icons -->
               <div class="columns is-multiline is-mobile is-centered" style="margin-bottom:60px;">
                 <div class="column is-one-quarter">
                 </div>
                 <div class="column is-one-quarter">
                   <div class="columns">
-                    <div class="column is-half is-offset-one-quarter">
+                    <div class="column is-flex is-horizontal-center">
                       <figure class="image is-64x64">
                         <img src="/static/img/smell.png" alt="Smell">
                       </figure>
@@ -27,7 +28,7 @@
                 </div>
                 <div class="column is-one-quarter">
                   <div class="columns">
-                    <div class="column is-half is-offset-one-quarter">
+                    <div class="column is-flex is-horizontal-center">
                       <figure class="image is-64x64">
                         <img src="/static/img/marker.png" alt="Location">
                       </figure>
@@ -37,22 +38,24 @@
                 <div class="column is-one-quarter">
                 </div>
               </div>
+
               <!--data collection interface -->
               <div class="container is-fluid has-text-centered" style="margin-bottom: 30px;">
                 <progress id ="progress" class="progress is-primary" value="00" max="100">15%</progress>
                 <div id="button_holder" class="columns is-multiline">
                   <div class="column is-4">
-                    <button id="smell" onclick="addProgress(); addSmell()" class="button is-light is-large">He perdido el olfato</button>
+                    <button id="smell" onclick="addProgress(); addSmell()" class="button is-light is-large is-size-5-mobile">He perdido el olfato</button>
                   </div>
                   <div class="column is-4">
-                    <button id="taste" onclick="addProgress(); addTaste()" class="button is-light is-large">He perdido el sabor</button>
+                    <button id="taste" onclick="addProgress(); addTaste()" class="button is-light is-large is-size-5-mobile">He perdido el sabor</button>
                   </div>
                   <div class="column is-4">
-                    <button id="location" onclick="addProgressAndLocation()" class="button is-light is-large">Facilitar mi ubicación</button>
+                    <button id="location" onclick="addProgressAndLocation()" class="button is-light is-large is-size-5-mobile">Facilitar mi ubicación</button>
                   </div>
                 </div>
                 <p id="demo"><p>
               </div>
+
               <!--confirmation button -->
               <div class="container is-fluid has-text-centered" style="margin-bottom: 30px;">
                 <div class="columns is-multiline">
@@ -65,6 +68,7 @@
                 </div>
               </div>
               </div>
+
               <!--Ux guidance-->
               <div class="container is-fluid has-text-centered">
                 <!-- UX guidance 1 -->
@@ -81,6 +85,7 @@
                 </div>
               </div>
             </div>
+
             <script>
               var x = document.getElementById("demo")
               var smell = false;
@@ -161,8 +166,8 @@
                 .then(response => console.log('Success:', response));
               }
             </script>
-            <div class="column is-2">
-            </div>
+            <!--<div class="column is-2">
+            </div>-->
           </div>
         </div>
       </div>
