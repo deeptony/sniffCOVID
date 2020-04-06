@@ -161,12 +161,6 @@
                 .then(res => res.json())
                 .catch(error => console.error('Error:', error))
                 .then(response => console.log('Success:', response))
-                .then(function(response) {
-                  let conf_button = document.getElementById("confirm_final")
-                  conf_button.classList.remove("is-black")
-                  conf_button.classList.remove("is-primary")
-                  conf_button.innerHTML = "Datos enviados!"
-                });
               }
             </script>
             <!--<div class="column is-2">
