@@ -127,6 +127,7 @@
                   x.innerHTML = "Parece que tu explorador no permite geolocalización";
                 }
               }
+
               function showPosition(position){
                 location_details['latitude'] = position.coords.latitude;
                 location_details['longitude'] = position.coords.longitude;
@@ -142,11 +143,12 @@
                 let progress_bar = document.getElementById("progress");
                 progress_bar.value = 100;
                 getLocation();
-
               }
 
               function triggerSendData(){
-                var url = 'https://sniffcovid.herokuapp.com//data';
+                if (Object.keys(location_details).length === 0) return;
+
+                var url = 'https://sniffcovid.herokuapp.com/data';
                 var data = {};
 
                 data.key1 = smell;
