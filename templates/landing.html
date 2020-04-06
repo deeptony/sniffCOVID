@@ -41,7 +41,7 @@
               </div>
 
               <!--data collection interface -->
-              <div class="container is-fluid has-text-centered" style="margin-bottom: 30px;">
+              <div id="collection_interface" class="container is-fluid has-text-centered" style="margin-bottom: 30px;">
                 <progress id ="progress" class="progress is-primary" value="00" max="100">15%</progress>
                 <div id="button_holder" class="columns is-multiline">
                   <div class="column is-4">
@@ -184,7 +184,13 @@
                 .then(function(myJson) {
                   conf_button.classList.remove("is-light");
                   conf_button.classList.remove("is-primary");
-                  conf_button.innerHTML = "Enviado!"
+                  conf_button.innerHTML = "Enviado!";
+                  var node = document.getElementById("collection_interface");
+                  node.querySelectorAll('*').forEach(n => n.remove());
+
+                  var confirm_message = document.createElement(p);
+                  confirm_message.innerHTML = "Datos enviados";
+                  node.appendChild(confirm_message);
                 })
                 .catch(error => console.error('Error:', error))
                 .then(response => console.log('Success:', response))
