@@ -145,6 +145,9 @@
               function triggerSendData(){
                 if (Object.keys(location_details).length === 0) return;
 
+                let conf_button = document.getElementById("confirm_final")
+                conf_button.innerHTML = "Cargando..."
+
                 var url = 'https://sniffcovid.herokuapp.com/data';
                 var data = {};
 
@@ -161,6 +164,11 @@
                   }
                 })
                 .then(res => res.json())
+                .then(function(myJson) {
+                  conf_button.classList.remove("is-light");
+                  conf_button.classList.remove("is-primary");
+                  conf_button.innerHTML = "Enviado!"
+                }
                 .catch(error => console.error('Error:', error))
                 .then(response => console.log('Success:', response))
               }
